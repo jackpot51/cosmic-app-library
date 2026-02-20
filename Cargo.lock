@@ -927,36 +927,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "cocoa"
-version = "0.25.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f6140449f97a6e97f9511815c5632d84c8aacf8ac271ad77c559218161a1373c"
-dependencies = [
- "bitflags 1.3.2",
- "block",
- "cocoa-foundation",
- "core-foundation",
- "core-graphics",
- "foreign-types",
- "libc",
- "objc",
-]
-
-[[package]]
-name = "cocoa-foundation"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c6234cbb2e4c785b456c0644748b1ac416dd045799740356f8363dfe00c93f7"
-dependencies = [
- "bitflags 1.3.2",
- "block",
- "core-foundation",
- "core-graphics-types",
- "libc",
- "objc",
-]
-
-[[package]]
 name = "codespan-reporting"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1136,14 +1106,14 @@ dependencies = [
 [[package]]
 name = "cosmic-config"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "atomicwrites",
- "cosmic-config-derive",
+ "cosmic-config-derive 1.0.0 (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "cosmic-settings-daemon",
  "dirs",
  "futures-util",
- "iced_futures",
+ "iced_futures 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "known-folders",
  "notify",
  "ron 0.12.0",
@@ -1155,9 +1125,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "cosmic-config"
+version = "1.0.0"
+source = "git+https://github.com/pop-os/libcosmic/#b9bd773940950dc07b2cfa7c62c2588b0a653017"
+dependencies = [
+ "atomicwrites",
+ "cosmic-config-derive 1.0.0 (git+https://github.com/pop-os/libcosmic/)",
+ "dirs",
+ "iced_futures 0.14.0-dev (git+https://github.com/pop-os/libcosmic/)",
+ "known-folders",
+ "notify",
+ "ron 0.12.0",
+ "serde",
+ "tracing",
+ "xdg",
+]
+
+[[package]]
 name = "cosmic-config-derive"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
+dependencies = [
+ "quote",
+ "syn 2.0.116",
+]
+
+[[package]]
+name = "cosmic-config-derive"
+version = "1.0.0"
+source = "git+https://github.com/pop-os/libcosmic/#b9bd773940950dc07b2cfa7c62c2588b0a653017"
 dependencies = [
  "quote",
  "syn 2.0.116",
@@ -1183,7 +1179,7 @@ version = "0.1.0"
 source = "git+https://github.com/pop-os/cosmic-panel#6a783a18c3079955ff4cde1d00eaadf8e77b869c"
 dependencies = [
  "anyhow",
- "cosmic-config",
+ "cosmic-config 1.0.0 (git+https://github.com/pop-os/libcosmic/)",
  "serde",
  "smithay-client-toolkit 0.20.0",
  "tracing",
@@ -1201,7 +1197,7 @@ dependencies = [
  "wayland-client",
  "wayland-protocols",
  "wayland-protocols-wlr",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "wayland-server",
 ]
 
@@ -1210,7 +1206,7 @@ name = "cosmic-settings-config"
 version = "0.1.0"
 source = "git+https://github.com/pop-os/cosmic-settings-daemon#6c3add2e19e22296d53fb0b034bc05e8b64e7631"
 dependencies = [
- "cosmic-config",
+ "cosmic-config 1.0.0 (git+https://github.com/pop-os/libcosmic/)",
  "ron 0.11.0",
  "serde",
  "serde_with",
@@ -1228,8 +1224,8 @@ dependencies = [
 
 [[package]]
 name = "cosmic-text"
-version = "0.17.1"
-source = "git+https://github.com/pop-os/cosmic-text.git#d7dc22dd20773c132814e256fd38fe071ab1b742"
+version = "0.18.0"
+source = "git+https://github.com/pop-os/cosmic-text.git#cd1d3aa1efb7d5529fb9de09d37fbc85b8ce1253"
 dependencies = [
  "bitflags 2.11.0",
  "fontdb 0.23.0",
@@ -1252,11 +1248,11 @@ dependencies = [
 [[package]]
 name = "cosmic-theme"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "almost",
  "configparser",
- "cosmic-config",
+ "cosmic-config 1.0.0 (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "csscolorparser",
  "dirs",
  "palette",
@@ -1531,46 +1527,7 @@ checksum = "75b325c5dbd37f80359721ad39aca5a29fb04c89279657cffdda8736d0c0b9d2"
 [[package]]
 name = "dpi"
 version = "0.1.1"
-source = "git+https://github.com/pop-os/winit.git?tag=iced-xdg-surface-0.13-rc#dd46a1499bcc38f2134ab869e8860a32e091c55b"
-
-[[package]]
-name = "drm"
-version = "0.11.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a0f8a69e60d75ae7dab4ef26a59ca99f2a89d4c142089b537775ae0c198bdcde"
-dependencies = [
- "bitflags 2.11.0",
- "bytemuck",
- "drm-ffi",
- "drm-fourcc",
- "rustix 0.38.44",
-]
-
-[[package]]
-name = "drm-ffi"
-version = "0.7.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "41334f8405792483e32ad05fbb9c5680ff4e84491883d2947a4757dc54cb2ac6"
-dependencies = [
- "drm-sys",
- "rustix 0.38.44",
-]
-
-[[package]]
-name = "drm-fourcc"
-version = "2.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0aafbcdb8afc29c1a7ee5fbe53b5d62f4565b35a042a662ca9fecd0b54dae6f4"
-
-[[package]]
-name = "drm-sys"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d09ff881f92f118b11105ba5e34ff8f4adf27b30dae8f12e28c193af1c83176"
-dependencies = [
- "libc",
- "linux-raw-sys 0.6.5",
-]
+source = "git+https://github.com/jackpot51/winit?branch=redox-wayland-pop#d3938cf36ac7930e4b49f50d83c3a6dd42dd3391"
 
 [[package]]
 name = "dyn-clone"
@@ -2446,12 +2403,12 @@ dependencies = [
 [[package]]
 name = "iced"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "dnd",
  "iced_accessibility",
- "iced_core",
- "iced_futures",
+ "iced_core 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
+ "iced_futures 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "iced_renderer",
  "iced_widget",
  "iced_winit",
@@ -2464,7 +2421,7 @@ dependencies = [
 [[package]]
 name = "iced_accessibility"
 version = "0.1.0"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "accesskit",
  "accesskit_winit",
@@ -2473,7 +2430,7 @@ dependencies = [
 [[package]]
 name = "iced_core"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "bitflags 2.11.0",
  "bytes",
@@ -2496,15 +2453,50 @@ dependencies = [
 ]
 
 [[package]]
+name = "iced_core"
+version = "0.14.0-dev"
+source = "git+https://github.com/pop-os/libcosmic/#b9bd773940950dc07b2cfa7c62c2588b0a653017"
+dependencies = [
+ "bitflags 2.11.0",
+ "bytes",
+ "dnd",
+ "glam",
+ "log",
+ "mime 0.1.0",
+ "num-traits",
+ "once_cell",
+ "palette",
+ "raw-window-handle",
+ "rustc-hash 2.1.1",
+ "smol_str 0.2.2",
+ "thiserror 1.0.69",
+ "web-time",
+ "window_clipboard",
+]
+
+[[package]]
 name = "iced_futures"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "futures",
- "iced_core",
+ "iced_core 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "log",
  "rustc-hash 2.1.1",
  "tokio",
+ "wasm-bindgen-futures",
+ "wasm-timer",
+]
+
+[[package]]
+name = "iced_futures"
+version = "0.14.0-dev"
+source = "git+https://github.com/pop-os/libcosmic/#b9bd773940950dc07b2cfa7c62c2588b0a653017"
+dependencies = [
+ "futures",
+ "iced_core 0.14.0-dev (git+https://github.com/pop-os/libcosmic/)",
+ "log",
+ "rustc-hash 2.1.1",
  "wasm-bindgen-futures",
  "wasm-timer",
 ]
@@ -2524,14 +2516,14 @@ dependencies = [
 [[package]]
 name = "iced_graphics"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "bitflags 2.11.0",
  "bytemuck",
  "cosmic-text",
  "half",
- "iced_core",
- "iced_futures",
+ "iced_core 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
+ "iced_futures 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "image",
  "kamadak-exif",
  "log",
@@ -2546,7 +2538,7 @@ dependencies = [
 [[package]]
 name = "iced_renderer"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "iced_graphics",
  "iced_tiny_skia",
@@ -2558,14 +2550,14 @@ dependencies = [
 [[package]]
 name = "iced_runtime"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "bytes",
  "cosmic-client-toolkit",
  "dnd",
  "iced_accessibility",
- "iced_core",
- "iced_futures",
+ "iced_core 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
+ "iced_futures 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "raw-window-handle",
  "thiserror 1.0.69",
  "window_clipboard",
@@ -2574,7 +2566,7 @@ dependencies = [
 [[package]]
 name = "iced_tiny_skia"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "bytemuck",
  "cosmic-text",
@@ -2590,7 +2582,7 @@ dependencies = [
 [[package]]
 name = "iced_wgpu"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "as-raw-xcb-connection",
  "bitflags 2.11.0",
@@ -2621,7 +2613,7 @@ dependencies = [
 [[package]]
 name = "iced_widget"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "cosmic-client-toolkit",
  "dnd",
@@ -2641,18 +2633,18 @@ dependencies = [
 [[package]]
 name = "iced_winit"
 version = "0.14.0-dev"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "cosmic-client-toolkit",
  "dnd",
  "iced_accessibility",
- "iced_futures",
+ "iced_futures 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "iced_graphics",
  "iced_runtime",
  "log",
  "raw-window-handle",
  "rustc-hash 2.1.1",
- "rustix 0.38.44",
+ "rustix 1.1.3",
  "thiserror 1.0.69",
  "tracing",
  "wasm-bindgen-futures",
@@ -3112,13 +3104,13 @@ checksum = "6800badb6cb2082ffd7b6a67e6125bb39f18782f793520caee8cb8846be06112"
 [[package]]
 name = "libcosmic"
 version = "1.0.0"
-source = "git+https://github.com/pop-os/libcosmic/#cb288070af610e0858e0c5e1818dc4dee3dcc00b"
+source = "git+https://github.com/jackpot51/libcosmic?branch=redox-wayland#8c5f2d3a7405fb66e20479db04a5b4ee2a72561c"
 dependencies = [
  "apply",
  "ashpd 0.12.2",
  "auto_enums",
  "cosmic-client-toolkit",
- "cosmic-config",
+ "cosmic-config 1.0.0 (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "cosmic-freedesktop-icons",
  "cosmic-panel-config",
  "cosmic-settings-config",
@@ -3132,8 +3124,8 @@ dependencies = [
  "i18n-embed-fl",
  "iced",
  "iced_accessibility",
- "iced_core",
- "iced_futures",
+ "iced_core 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
+ "iced_futures 0.14.0-dev (git+https://github.com/jackpot51/libcosmic?branch=redox-wayland)",
  "iced_renderer",
  "iced_runtime",
  "iced_tiny_skia",
@@ -3188,7 +3180,6 @@ checksum = "3d0b95e02c851351f877147b7deea7b1afb1df71b63aa5f8270716e0c5720616"
 dependencies = [
  "bitflags 2.11.0",
  "libc",
- "redox_syscall 0.7.1",
 ]
 
 [[package]]
@@ -3208,12 +3199,6 @@ name = "linux-raw-sys"
 version = "0.4.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d26c52dbd32dccf2d10cac7725f8eae5296885fb5703b261f7d0a0739ec807ab"
-
-[[package]]
-name = "linux-raw-sys"
-version = "0.6.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2a385b1be4e5c3e362ad2ffa73c392e53f031eaa5b7d648e64cd87f27f6063d7"
 
 [[package]]
 name = "linux-raw-sys"
@@ -3644,7 +3629,7 @@ dependencies = [
  "objc2-core-data",
  "objc2-core-image",
  "objc2-foundation 0.2.2",
- "objc2-quartz-core",
+ "objc2-quartz-core 0.2.2",
 ]
 
 [[package]]
@@ -3707,6 +3692,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "objc2-core-graphics"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e022c9d066895efa1345f8e33e584b9f958da2fd4cd116792e15e07e4720a807"
+dependencies = [
+ "bitflags 2.11.0",
+ "dispatch2",
+ "objc2 0.6.3",
+ "objc2-core-foundation",
+ "objc2-io-surface",
+]
+
+[[package]]
 name = "objc2-core-image"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3761,6 +3759,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "objc2-io-surface"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "180788110936d59bab6bd83b6060ffdfffb3b922ba1396b312ae795e1de9d81d"
+dependencies = [
+ "bitflags 2.11.0",
+ "objc2 0.6.3",
+ "objc2-core-foundation",
+]
+
+[[package]]
 name = "objc2-link-presentation"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3798,6 +3807,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "objc2-quartz-core"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "96c1358452b371bf9f104e21ec536d37a650eb10f7ee379fff67d2e08d537f1f"
+dependencies = [
+ "bitflags 2.11.0",
+ "objc2 0.6.3",
+ "objc2-core-foundation",
+ "objc2-foundation 0.3.2",
+]
+
+[[package]]
 name = "objc2-symbols"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3822,7 +3843,7 @@ dependencies = [
  "objc2-core-location",
  "objc2-foundation 0.2.2",
  "objc2-link-presentation",
- "objc2-quartz-core",
+ "objc2-quartz-core 0.2.2",
  "objc2-symbols",
  "objc2-uniform-type-identifiers",
  "objc2-user-notifications",
@@ -3878,16 +3899,6 @@ name = "option-ext"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d"
-
-[[package]]
-name = "orbclient"
-version = "0.3.50"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "52ad2c6bae700b7aa5d1cc30c59bdd3a1c180b09dbaea51e2ae2b8e1cf211fdd"
-dependencies = [
- "libc",
- "libredox",
-]
 
 [[package]]
 name = "ordered-stream"
@@ -4380,6 +4391,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "quick-xml"
+version = "0.39.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bd58c6a1fc307e1092aa0bb23d204ca4d1f021764142cd0424dccc84d2d5d106"
+dependencies = [
+ "memchr",
+]
+
+[[package]]
 name = "quote"
 version = "1.0.44"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4493,16 +4513,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "redox_event"
-version = "0.4.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3514da49aa6ca4cff5088a1b382ef3a0d9149964d29bb49ebd03fd66cc575a18"
-dependencies = [
- "bitflags 2.11.0",
- "libredox",
-]
-
-[[package]]
 name = "redox_syscall"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4516,15 +4526,6 @@ name = "redox_syscall"
 version = "0.5.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed2bf2547551a7053d6fdfafda3f938979645c44812fbfcda098faae3f1a362d"
-dependencies = [
- "bitflags 2.11.0",
-]
-
-[[package]]
-name = "redox_syscall"
-version = "0.7.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "35985aa610addc02e24fc232012c86fd11f14111180f902b67e2d5331f8ebf2b"
 dependencies = [
  "bitflags 2.11.0",
 ]
@@ -4753,8 +4754,7 @@ dependencies = [
 [[package]]
 name = "rustix"
 version = "1.1.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "146c9e247ccc180c1f61615433868c99f3de3ae256a30a43b49f67c2d9171f34"
+source = "git+https://github.com/bytecodealliance/rustix.git#8bf15a0eb444087e4c3ed04e01ed488cc429af2d"
 dependencies = [
  "bitflags 2.11.0",
  "errno",
@@ -5062,7 +5062,7 @@ dependencies = [
  "wayland-cursor",
  "wayland-protocols",
  "wayland-protocols-wlr",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "xkeysym",
 ]
 
@@ -5091,7 +5091,7 @@ dependencies = [
  "wayland-protocols-experimental",
  "wayland-protocols-misc",
  "wayland-protocols-wlr",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "xkbcommon 0.8.0",
  "xkeysym",
 ]
@@ -5144,32 +5144,30 @@ dependencies = [
 
 [[package]]
 name = "softbuffer"
-version = "0.4.1"
-source = "git+https://github.com/pop-os/softbuffer?tag=cosmic-4.0#a3f77e251e7422803f693df6e3fc313c010c4dcb"
+version = "0.4.6"
+source = "git+https://github.com/jackpot51/softbuffer.git?branch=redox-wayland#204aaffafc63cdc71232dcff3b30bd4891391595"
 dependencies = [
- "as-raw-xcb-connection",
  "bytemuck",
  "cfg_aliases 0.2.1",
- "cocoa",
- "core-graphics",
- "drm",
  "fastrand 2.3.0",
- "foreign-types",
  "js-sys",
- "log",
  "memmap2 0.9.10",
- "objc",
+ "ndk",
+ "objc2 0.6.3",
+ "objc2-core-foundation",
+ "objc2-core-graphics",
+ "objc2-foundation 0.3.2",
+ "objc2-quartz-core 0.3.2",
  "raw-window-handle",
  "redox_syscall 0.5.18",
- "rustix 0.38.44",
- "tiny-xlib",
+ "rustix 1.1.3",
+ "tracing",
  "wasm-bindgen",
  "wayland-backend",
  "wayland-client",
  "wayland-sys",
  "web-sys",
- "windows-sys 0.52.0",
- "x11rb",
+ "windows-sys 0.60.2",
 ]
 
 [[package]]
@@ -5430,7 +5428,6 @@ checksum = "0324504befd01cab6e0c994f34b2ffa257849ee019d3fb3b64fb2c858887d89e"
 dependencies = [
  "as-raw-xcb-connection",
  "ctor-lite",
- "libloading",
  "pkg-config",
  "tracing",
 ]
@@ -5961,8 +5958,7 @@ dependencies = [
 [[package]]
 name = "wayland-backend"
 version = "0.3.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fee64194ccd96bf648f42a65a7e589547096dfa702f7cadef84347b66ad164f9"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
 dependencies = [
  "cc",
  "downcast-rs",
@@ -5975,13 +5971,12 @@ dependencies = [
 [[package]]
 name = "wayland-client"
 version = "0.31.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b8e6faa537fbb6c186cb9f1d41f2f811a4120d1b57ec61f50da451a0c5122bec"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
 dependencies = [
  "bitflags 2.11.0",
  "rustix 1.1.3",
  "wayland-backend",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (git+https://github.com/jackpot51/wayland-rs.git?branch=redox)",
 ]
 
 [[package]]
@@ -5998,8 +5993,7 @@ dependencies = [
 [[package]]
 name = "wayland-cursor"
 version = "0.31.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5864c4b5b6064b06b1e8b74ead4a98a6c45a285fe7a0e784d24735f011fdb078"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
 dependencies = [
  "rustix 1.1.3",
  "wayland-client",
@@ -6009,13 +6003,12 @@ dependencies = [
 [[package]]
 name = "wayland-protocols"
 version = "0.32.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "baeda9ffbcfc8cd6ddaade385eaf2393bd2115a69523c735f12242353c3df4f3"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
 dependencies = [
  "bitflags 2.11.0",
  "wayland-backend",
  "wayland-client",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (git+https://github.com/jackpot51/wayland-rs.git?branch=redox)",
  "wayland-server",
 ]
 
@@ -6029,20 +6022,19 @@ dependencies = [
  "wayland-backend",
  "wayland-client",
  "wayland-protocols",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "wayland-protocols-misc"
 version = "0.3.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "791c58fdeec5406aa37169dd815327d1e47f334219b523444bc26d70ceb4c34e"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
 dependencies = [
  "bitflags 2.11.0",
  "wayland-backend",
  "wayland-client",
  "wayland-protocols",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (git+https://github.com/jackpot51/wayland-rs.git?branch=redox)",
 ]
 
 [[package]]
@@ -6055,20 +6047,19 @@ dependencies = [
  "wayland-backend",
  "wayland-client",
  "wayland-protocols",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "wayland-protocols-wlr"
 version = "0.3.10"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9597cdf02cf0c34cd5823786dce6b5ae8598f05c2daf5621b6e178d4f7345f3"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
 dependencies = [
  "bitflags 2.11.0",
  "wayland-backend",
  "wayland-client",
  "wayland-protocols",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (git+https://github.com/jackpot51/wayland-rs.git?branch=redox)",
  "wayland-server",
 ]
 
@@ -6079,28 +6070,36 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5423e94b6a63e68e439803a3e153a9252d5ead12fd853334e2ad33997e3889e3"
 dependencies = [
  "proc-macro2",
- "quick-xml",
+ "quick-xml 0.38.4",
+ "quote",
+]
+
+[[package]]
+name = "wayland-scanner"
+version = "0.31.8"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
+dependencies = [
+ "proc-macro2",
+ "quick-xml 0.39.1",
  "quote",
 ]
 
 [[package]]
 name = "wayland-server"
 version = "0.31.11"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9297ab90f8d1f597711d36455c5b1b2290eca59b8134485e377a296b80b118c9"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
 dependencies = [
  "bitflags 2.11.0",
  "downcast-rs",
  "rustix 1.1.3",
  "wayland-backend",
- "wayland-scanner",
+ "wayland-scanner 0.31.8 (git+https://github.com/jackpot51/wayland-rs.git?branch=redox)",
 ]
 
 [[package]]
 name = "wayland-sys"
 version = "0.31.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1e6dbfc3ac5ef974c92a2235805cc0114033018ae1290a72e474aa8b28cbbdfd"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
 dependencies = [
  "dlib",
  "log",
@@ -6723,7 +6722,7 @@ checksum = "d6bbff5f0aada427a1e5a6da5f1f98158182f26556f345ac9e04d36d0ebed650"
 [[package]]
 name = "winit"
 version = "0.30.5"
-source = "git+https://github.com/pop-os/winit.git?tag=iced-xdg-surface-0.13-rc#dd46a1499bcc38f2134ab869e8860a32e091c55b"
+source = "git+https://github.com/jackpot51/winit?branch=redox-wayland-pop#d3938cf36ac7930e4b49f50d83c3a6dd42dd3391"
 dependencies = [
  "ahash",
  "android-activity",
@@ -6740,18 +6739,15 @@ dependencies = [
  "dpi",
  "js-sys",
  "libc",
- "libredox",
  "memmap2 0.9.10",
  "ndk",
  "objc2 0.5.2",
  "objc2-app-kit 0.2.2",
  "objc2-foundation 0.2.2",
  "objc2-ui-kit",
- "orbclient",
  "percent-encoding",
  "pin-project",
  "raw-window-handle",
- "redox_event",
  "rustix 0.38.44",
  "sctk-adwaita",
  "smithay-client-toolkit 0.19.2",
@@ -7089,8 +7085,7 @@ dependencies = [
 [[package]]
 name = "zbus"
 version = "5.13.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1bfeff997a0aaa3eb20c4652baf788d2dfa6d2839a0ead0b3ff69ce2f9c4bdd1"
+source = "git+https://github.com/jackpot51/zbus.git?branch=redox#91e2ae789459581c387008984998e1c249a5fa8a"
 dependencies = [
  "async-broadcast 0.7.2",
  "async-executor",
@@ -7139,8 +7134,7 @@ dependencies = [
 [[package]]
 name = "zbus_macros"
 version = "5.13.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0bbd5a90dbe8feee5b13def448427ae314ccd26a49cac47905cafefb9ff846f1"
+source = "git+https://github.com/jackpot51/zbus.git?branch=redox#91e2ae789459581c387008984998e1c249a5fa8a"
 dependencies = [
  "proc-macro-crate 3.4.0",
  "proc-macro2",
@@ -7165,8 +7159,7 @@ dependencies = [
 [[package]]
 name = "zbus_names"
 version = "4.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ffd8af6d5b78619bab301ff3c560a5bd22426150253db278f164d6cf3b72c50f"
+source = "git+https://github.com/jackpot51/zbus.git?branch=redox#91e2ae789459581c387008984998e1c249a5fa8a"
 dependencies = [
  "serde",
  "winnow 0.7.14",
@@ -7292,8 +7285,7 @@ dependencies = [
 [[package]]
 name = "zvariant"
 version = "5.9.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "68b64ef4f40c7951337ddc7023dd03528a57a3ce3408ee9da5e948bd29b232c4"
+source = "git+https://github.com/jackpot51/zbus.git?branch=redox#91e2ae789459581c387008984998e1c249a5fa8a"
 dependencies = [
  "endi",
  "enumflags2",
@@ -7320,8 +7312,7 @@ dependencies = [
 [[package]]
 name = "zvariant_derive"
 version = "5.9.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "484d5d975eb7afb52cc6b929c13d3719a20ad650fea4120e6310de3fc55e415c"
+source = "git+https://github.com/jackpot51/zbus.git?branch=redox#91e2ae789459581c387008984998e1c249a5fa8a"
 dependencies = [
  "proc-macro-crate 3.4.0",
  "proc-macro2",
@@ -7344,8 +7335,7 @@ dependencies = [
 [[package]]
 name = "zvariant_utils"
 version = "3.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f75c23a64ef8f40f13a6989991e643554d9bef1d682a281160cf0c1bc389c5e9"
+source = "git+https://github.com/jackpot51/zbus.git?branch=redox#91e2ae789459581c387008984998e1c249a5fa8a"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -7353,3 +7343,8 @@ dependencies = [
  "syn 2.0.116",
  "winnow 0.7.14",
 ]
+
+[[patch.unused]]
+name = "wayland-egl"
+version = "0.32.9"
+source = "git+https://github.com/jackpot51/wayland-rs.git?branch=redox#93844bad4929ec7bc6926166dab4e6c8b91d4f39"
